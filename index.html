@@ -96,7 +96,7 @@
 
   h1 {
     font-family: var(--serif);
-    font-size: 48px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.1;
     color: var(--text);
@@ -132,19 +132,17 @@
   .hero-photo {
     width: 160px;
     height: 200px;
-    background: var(--accent-light);
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
     border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 12px;
-    text-align: center;
-    padding: 1rem;
     margin-top: 0.5rem;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .photo-icon {
@@ -307,7 +305,7 @@
 
 <div class="hero" id="about">
   <div class="hero-text">
-    <div class="hero-label">Ph.D. Candidate</div>
+    <div class="hero-label">Ph.D</div>
     <h1>권용훈<br>Yonghun Kwon</h1>
     <div class="hero-sub">강원대학교 컴퓨터공학과 · Kangwon National University</div>
     <p class="hero-bio">
@@ -315,16 +313,11 @@
       컴퓨터 시스템 분야를 연구하고 있으며, 관련 연구를 활발히 진행하고 있습니다.
     </p>
     <div class="hero-contact">
-      <a href="mailto:russell1113@kangwon.ac.kr">russell1113@kangwon.ac.kr</a>
+      <a href="/cdn-cgi/l/email-protection#6715121414020b0b56565654270c060900100809490604490c15"><span class="__cf_email__" data-cfemail="6311161010060f0f525252502308020d04140c0d4d02004d0811">[email&#160;protected]</span></a>
     </div>
   </div>
   <div class="hero-photo">
-    <div class="photo-icon">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5">
-        <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-      </svg>
-    </div>
-    사진을 여기에 추가하세요
+    <img src="profile.jpg" alt="Yonghun Kwon">
   </div>
 </div>
 
@@ -366,14 +359,4 @@
       강원대학교 컴퓨터공학과<br>
       Department of Computer Science & Engineering<br>
       Kangwon National University<br><br>
-      <a href="mailto:russell1113@kangwon.ac.kr" style="color: var(--accent); text-decoration:none;">russell1113@kangwon.ac.kr</a>
-    </p>
-  </section>
-</main>
-
-<footer>
-  © 2026 Yonghun Kwon · Kangwon National University
-</footer>
-
-</body>
-</html>
+      <a href="/cdn-cgi/l/email-protection#245651575741484815151517644f454a43534b4a0a45470a4f56" style="c
