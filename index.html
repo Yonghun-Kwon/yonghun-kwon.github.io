@@ -294,6 +294,14 @@
     nav { gap: 1rem; }
     .nav-links { gap: 1rem; }
   }
+  .pub-category {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 2rem 0 0.8rem;
+}
 </style>
 </head>
 <body>
@@ -358,12 +366,25 @@
   </section>
 
   <section id="publications">
-    <div class="section-header">
-      <span class="section-label">Publications</span>
-      <div class="section-line"></div>
-    </div>
-    <h2>Publications</h2>
-    <div class="placeholder-card">
+  <div class="section-header">
+    <span class="section-label">Publications</span>
+    <div class="section-line"></div>
+  </div>
+  <h2>Publications</h2>
 
-    </div>
-  </section>
+  <h3 class="pub-category">International Journal(SCI)</h3>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <span class="pub-year">2023</span>
+      <div class="pub-title">Yonghun Kwon, Woojae Kim, Inbum Jung, "Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing," Sensors, Vol 23, No 5, 2575, Feb, 2023</div>
+    </li>
+  </ul>
+
+  <h3 class="pub-category">Domestic Journal</h3>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <span class="pub-year">2026</span>
+      <div class="pub-title">권용훈, 정인범, "엣지 컴퓨팅에서 분산 인공지능 워크로드를 위한 리소스 셀 구조," 정보과학회 컴퓨팅의 실제 논문지, 32권, 3호, pp. 105-118, 2026년 03월</div>
+    </li>
+  </ul>
+</section>
