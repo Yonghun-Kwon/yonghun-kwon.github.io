@@ -331,6 +331,14 @@
 .pub-abstract.open { display: block; }
 </style>
 </head>
+<script>
+function toggleAbstract(el) {
+  const abstract = el.parentElement.querySelector('.pub-abstract');
+  const icon = el.querySelector('.toggle-icon');
+  abstract.classList.toggle('open');
+  icon.style.transform = abstract.classList.contains('open') ? 'rotate(180deg)' : '';
+}
+</script>
 <body>
 
 <header>
