@@ -314,6 +314,21 @@
   margin-top: 6px;
 }
 .pub-link:hover { background: var(--accent); color: #fff; }
+.pub-content { flex: 1; }
+.pub-toggle { cursor: pointer; }
+.pub-toggle:hover { color: var(--accent); }
+.toggle-icon { font-size: 12px; margin-left: 4px; transition: transform 0.2s; }
+.pub-abstract {
+  display: none;
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--accent-light);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.pub-abstract.open { display: block; }
 </style>
 </head>
 <body>
@@ -427,4 +442,41 @@
         </div>
       </li>
       </ul>
+    <h3 class="pub-category">International Journal (SCI)</h3>
+<ul class="pub-list">
+  <li class="pub-item">
+    <div class="pub-year">2023</div>
+    <div class="pub-content">
+      <div class="pub-title pub-toggle" onclick="toggleAbstract(this)">
+        "Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing"
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="pub-authors">Yonghun Kwon, Woojae Kim, Inbum Jung</div>
+      <div class="pub-venue">Sensors, Vol 23, No 5, 2575, Feb, 2023</div>
+      <div class="pub-abstract">
+        <p>여기에 초록을 입력하세요.</p>
+        <a href="papers/sensors2023.pdf" target="_blank" class="pub-link">PDF</a>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h3 class="pub-category">Domestic Journal (in Korea)</h3>
+<ul class="pub-list">
+  <li class="pub-item">
+    <div class="pub-year">2026</div>
+    <div class="pub-content">
+      <div class="pub-title pub-toggle" onclick="toggleAbstract(this)">
+        "엣지 컴퓨팅에서 분산 인공지능 워크로드를 위한 리소스 셀 구조"
+        <span class="toggle-icon">▾</span>
+      </div>
+      <div class="pub-authors">권용훈, 정인범</div>
+      <div class="pub-venue">정보과학회 컴퓨팅의 실제 논문지, 32권, 3호, pp. 105-118, 2026년 03월</div>
+      <div class="pub-abstract">
+        <p>여기에 초록을 입력하세요.</p>
+        <a href="papers/kci2026.pdf" target="_blank" class="pub-link">PDF</a>
+      </div>
+    </div>
+  </li>
+</ul>
   </section>
