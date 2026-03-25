@@ -333,6 +333,21 @@ a.pub-card {
   text-decoration: none;
   color: inherit;
 }
+.pub-readmore {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 12px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.pub-readmore:hover {
+  background: var(--accent);
+  color: #fff;
+}
 .pub-abstract.open { display: block; }
 </style>
 </head>
@@ -455,29 +470,21 @@ function toggleAbstract(el) {
         </div>
       </li>
       </ul>
-      
+
 <div class="pub-category">International Journal (SCI)</div>
 
-<a href="papers/sensors2023.html" class="pub-card">
-  <div class="pub-card-header">
-    <div style="flex:1;">
-      <div class="pub-title">"Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing"</div>
-      <div class="pub-authors">Yonghun Kwon, Woojae Kim, Inbum Jung</div>
-      <div class="pub-venue">Sensors, Vol 23, No 5, 2575, Feb, 2023</div>
-    </div>
-    <span class="pub-arrow">→</span>
-  </div>
-</a>
+<div class="pub-card">
+  <div class="pub-title">"Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing"</div>
+  <div class="pub-authors">Yonghun Kwon, Woojae Kim, Inbum Jung</div>
+  <div class="pub-venue">Sensors, Vol 23, No 5, 2575, Feb, 2023</div>
+  <a href="papers/sensors2023.html" class="pub-readmore">Read More</a>
+</div>
 
 <div class="pub-category">Domestic Journal (in Korea)</div>
 
-<a href="papers/kci2026.html" class="pub-card">
-  <div class="pub-card-header">
-    <div style="flex:1;">
-      <div class="pub-title">"엣지 컴퓨팅에서 분산 인공지능 워크로드를 위한 리소스 셀 구조"</div>
-      <div class="pub-authors">권용훈, 정인범</div>
-      <div class="pub-venue">정보과학회 컴퓨팅의 실제 논문지, 32권, 3호, pp. 105-118, 2026년 03월</div>
-    </div>
-    <span class="pub-arrow">→</span>
-  </div>
-</a>
+<div class="pub-card">
+  <div class="pub-title">"엣지 컴퓨팅에서 분산 인공지능 워크로드를 위한 리소스 셀 구조"</div>
+  <div class="pub-authors">권용훈, 정인범</div>
+  <div class="pub-venue">정보과학회 컴퓨팅의 실제 논문지, 32권, 3호, pp. 105-118, 2026년 03월</div>
+  <a href="papers/kci2026.html" class="pub-readmore">Read More</a>
+</div>
