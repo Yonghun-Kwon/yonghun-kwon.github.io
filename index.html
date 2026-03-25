@@ -302,6 +302,18 @@
   color: var(--muted);
   margin: 2rem 0 0.8rem;
 }
+.pub-link {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-decoration: none;
+  margin-top: 6px;
+}
+.pub-link:hover { background: var(--accent); color: #fff; }
 </style>
 </head>
 <body>
@@ -326,7 +338,6 @@
     <div class="hero-sub">강원대학교 컴퓨터공학과 소프트웨어시스템연구실<br>
     Software & System Lab. in Kangwon National University</div>
     <p class="hero-bio">
-      저는 강원대학교 컴퓨터공학과에서 
     </p>
     <div class="hero-contact">
       <a href="/cdn-cgi/l/email-protection#6715121414020b0b56565654270c060900100809490604490c15"><span class="__cf_email__" data-cfemail="6311161010060f0f525252502308020d04140c0d4d02004d0811">[email&#160;protected]</span></a>
@@ -339,7 +350,6 @@
 
 <main>
   <hr class="divider">
-
   <section id="research">
     <div class="section-header">
       <span class="section-label">Research</span>
@@ -350,6 +360,7 @@
       <span class="tag">Edge AI</span>
       <span class="tag">Physical AI</span>
       <span class="tag">Resource Quantification</span>
+      <span class="tag">Autonomous Driving</span>
     </div>
   </section>
 
@@ -366,25 +377,35 @@
   </section>
 
   <section id="publications">
-  <div class="section-header">
-    <span class="section-label">Publications</span>
-    <div class="section-line"></div>
-  </div>
-  <h2>Publications</h2>
+    <div class="section-header">
+      <span class="section-label">Publications</span>
+      <div class="section-line"></div>
+    </div>
+    <h2>Publications</h2>
+      <h3 class="pub-category">Thesis</h3>
+      <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-year">2026</span>
+        <div>
+          <div class="pub-title">A Study of Resource Structure for Distributed AI in Edge Computing</div>
+          <a href="papers/thesis.pdf" target="_blank" class="pub-link">PDF</a>
+        </div>
+      </li>
+    </ul>
+      <h3 class="pub-category">International Journal(SCI)</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-year">2023</span>
+          <div class="pub-title">Yonghun Kwon, Woojae Kim, Inbum Jung, "Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing," Sensors, Vol 23, No 5, 2575, Feb, 2023</div>
+          <a href="papers/sensors2023.pdf" target="_blank" class="pub-link">PDF</a>
+        </li>
+      </ul>
 
-  <h3 class="pub-category">International Journal(SCI)</h3>
-  <ul class="pub-list">
-    <li class="pub-item">
-      <span class="pub-year">2023</span>
-      <div class="pub-title">Yonghun Kwon, Woojae Kim, Inbum Jung, "Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing," Sensors, Vol 23, No 5, 2575, Feb, 2023</div>
-    </li>
-  </ul>
-
-  <h3 class="pub-category">Domestic Journal</h3>
-  <ul class="pub-list">
-    <li class="pub-item">
-      <span class="pub-year">2026</span>
-      <div class="pub-title">권용훈, 정인범, "엣지 컴퓨팅에서 분산 인공지능 워크로드를 위한 리소스 셀 구조," 정보과학회 컴퓨팅의 실제 논문지, 32권, 3호, pp. 105-118, 2026년 03월</div>
-    </li>
-  </ul>
-</section>
+      <h3 class="pub-category">Domestic Journal</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-year">2026</span>
+          <div class="pub-title">권용훈, 정인범, "엣지 컴퓨팅에서 분산 인공지능 워크로드를 위한 리소스 셀 구조," 정보과학회 컴퓨팅의 실제 논문지, 32권, 3호, pp. 105-118, 2026년 03월</div>
+        </li>
+      </ul>
+  </section>
