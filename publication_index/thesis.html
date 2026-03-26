@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yonghun Kwon | 권용훈</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --text: #1a1a18;
+      --muted: #404040;
+      --accent: #2c4a7c;
+      --accent-light: #e8edf5;
+      --border: #e2dfd8;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 0; z-index: 10; }
+    nav { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-name { font-family: var(--serif); font-size: 17px; color: var(--text); letter-spacing: 0.01em; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .pub-readmore { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); border: 1px solid var(--accent); padding: 6px 16px; border-radius: 2px; text-decoration: none; }
+    .pub-readmore:hover { background: var(--accent); color: #fff; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="../index.html" class="nav-name">Yonghun Kwon</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#publications">← Publications</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div style="max-width:860px; margin:0 auto; padding:5rem 2rem 4rem;">
+  <div style="font-size:14px; font-weight:600; letter-spacing:0.12em; color:var(--accent); margin-bottom:1rem;">
+   Thesis (Ph.D)
+  </div>
+  <h1 style="font-family:var(--serif); font-size:25px; font-weight:400; line-height:1.3; margin-bottom:0.6rem;">
+    A Study of Resource Structure for Distributed AI in Edge Computing
+  </h1>
+  <h2 style="font-family:var(--serif); font-size:18px; font-weight:400; color:var(--muted); line-height:1.4; margin-bottom:1rem;">
+    엣지 컴퓨팅에서 분산 인공지능을 위한 자원 구조 연구
+  </h2>
+  <p style="font-size:14px; color:var(--muted); margin-bottom:0.3rem;">Yonghun Kwon</p>
+  <a href="" target="_blank" style="color:var(--accent); text-decoration:none;">
+        dcollection: Coming Soon
+    </a>     
+</div>
+
+<main style="max-width:860px; margin:0 auto; padding:0 2rem 6rem;">
+  <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2.5rem;">
+
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Abstract</h2>
+  <p style="font-size:14px; line-height:1.8; color:var(--text); margin-bottom:2.5rem; text-align: justify;">
+     The advancement of cloud computing has significantly contributed to enabling
+artificial intelligence (AI) services. However, as the demand for AI services
+continues to grow, the issues of energy consumption and latency in centralized
+cloud servers have become more pronounced. To address these challenges, edge
+computing has been proposed. By processing data at the network edge, edge
+computing enables faster responses and offers security benefits, as data can be
+handled locally. Nevertheless, the resource constraints and heterogeneity of edge
+devices present significant challenges in providing diverse AI services.
+To overcome these limitations, this paper proposes a resource structure
+suitable for edge computing environments. A Resource-Cell is a logical and
+quantitative unit that represents the resources required for a device to execute
+AI workloads. Unlike theoretical performance metrics, Resource-Cells are derived
+from actual device performance through a Multi-Dimensional Benchmark. The
+benchmark consists of four models built from representative operators used in
+AI workloads, and each benchmark contains ten stages. The computational load
+and memory access increase at each stage, allowing the benchmark to evaluate
+models of varying sizes.
+To validate the proposed approach, the Raspberry Pi series is used as the
+experimental platform. Through experiments, we analyze the accuracy of
+Resource-Cell estimation, the performance of distributed processing, and the
+battery efficiency associated with Resource-Cell utilization. The results confirm
+that the Resource-Cell structure is effective for operating distributed AI
+workloads in edge environments.
+  </p>
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">초록</h2>
+  <p style="font-size:14px; line-height:1.8; color:var(--text); margin-bottom:2.5rem; text-align: justify;">
+   클라우드 컴퓨팅의 발전은 인공지능 서비스를 제공하는데 큰 역할을 했다. 하지만 인공지능 서비스수요증가는 중앙 집중형 클라우드 서버의 에너지 소비와 지연 문제를 심화시키고 있다. 이를 해결하기 위해엣지컴퓨팅이 제안되었다. 엣지 컴퓨팅은 네트워크의 말단에서 데이터를 처리하여 빠르고, 데이터가 지역적으로처리되기 때문에 보안에 유리하다. 하지만 엣지 컴퓨팅의 자원 제약성과 이기종성은 다양한 인공지능 서비스를제공하는데 도전과제가 된다. 
+   본 논문은 이러한 문제를 해결하기 위해 엣지 컴퓨팅 환경에 적합한 자원구조를 제안한다. 리소스 셀은 디바이스가 인공지능 워크로드를 수행하는데 필요한 자원을 논리적으로 정량화한단위이다. 리소스 셀은 디바이스의 성능을 이론적인 수치가 아니라 실제 성능하기 위하여 다차원 벤치마크를수행한다. 벤치마크는 인공지능 모델을 구성하는 대표적인 연산자로 구성된 4가지의 모델사용하며, 각 벤치마크는 10단계로 이루어져 있다. 단계마다 연산량과 메모리 접근량이 증가하도록 구성되어 있어, 다양한 크기의모델에 대응하도록 설계되어 있다. 
+   제안하는 내용을 평가하기 위하여 라즈베리 파이 시리즈를 사용하였다. 실험을 통하여 리소스 셀의 산출의 정확도와 분산처리 성능 그리고 리소스 셀의 배터리 효율을 분석하여 리소스셀 구조가 엣지 환경에서 분산 인공지능을 운용하는데 유효함을 확인한다.
+
+  </p>
+  <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2rem;">
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Keywords</h2>
+  <p style="font-size:14px; color:var(--muted); margin-bottom:2.5rem;">
+   Edge Computing, Distributed AI, Internet of Things, Benchmark, Resource Constraint, Heterogeneous
+  </p>
+  
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">키워드</h2>
+  <p style="font-size:14px; color:var(--muted); margin-bottom:2.5rem;">
+   엣지 컴퓨팅, 분산 인공지능, 사물인터넷, 벤치마크, 자원제약성, 이기종 환경
+  </p>
+  <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2rem;">
+
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Links</h2>
+  <a href="papers/thesis.pdf" target="_blank" class="pub-readmore">PDF</a>
+</main>
+</body>
+</html>
