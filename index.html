@@ -199,7 +199,7 @@
 
   h2 {
     font-family: var(--serif);
-    font-size: 26px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--text);
     margin-bottom: 1.2rem;
@@ -295,10 +295,11 @@
     .nav-links { gap: 1rem; }
   }
   .pub-category {
+  font-family: var(--serif);
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   /*color: var(--muted);*/
   margin: 2rem 0 0.8rem;
 }
@@ -367,6 +368,8 @@ function toggleAbstract(el) {
     <ul class="nav-links">
       <li><a href="#about me">About</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#research">Education</a></li>
+      <li><a href="#research">Experience</a></li>
       <li><a href="#publications">Publications</a></li>
     </ul>
   </nav>
@@ -417,9 +420,9 @@ function toggleAbstract(el) {
     2021.9 - 2026.2: Ph.D in Computer Information & Telecommunications Engineering, Kangwon National University<br>
     </div>
   </section>
-  <section id="teaching">
+  <section id="Experience">
   <div class="section-header">
-    <span class="section-label">Teaching</span>
+    <span class="section-label">Experience</span>
     <div class="section-line"></div>
   </div>
   <h2>Lecturer</h2>
@@ -431,8 +434,6 @@ function toggleAbstract(el) {
       <span class="pub-year">Spring</span>
       <div class="pub-card">
         <div class="pub-title">사물인터넷실습 (IoT Practices)</div>
-        <div class="pub-authors">4학년 · 강원대학교 컴퓨터공학과</div>
-        <div class="pub-venue">2024. 03 - Present</div>
         <a href="teaching/iot-lab.pdf" class="pub-readmore">강의 자료</a>
       </div>
     </li>
@@ -440,8 +441,6 @@ function toggleAbstract(el) {
       <span class="pub-year">Fall</span>
       <div class="pub-card">
         <div class="pub-title">임베디드시스템 (Embedded Systems)</div>
-        <div class="pub-authors">3학년 · 강원대학교 컴퓨터공학과</div>
-        <div class="pub-venue">2023. 09 - Present</div>
         <a href="teaching/embedded.pdf" class="pub-readmore">강의 자료</a>
       </div>
     </li>
@@ -452,7 +451,6 @@ function toggleAbstract(el) {
       <span class="section-label">Publications</span>
       <div class="section-line"></div>
     </div>
-    <h2>Publications</h2>
       <h3 class="pub-category">Thesis</h3>
       <ul class="pub-list">
       <li class="pub-item">
