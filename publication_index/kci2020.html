@@ -52,66 +52,59 @@
   </h2>
   <p style="font-size:14px; color:var(--muted); margin-bottom:0.3rem;">권용훈, 정인범</p>
   <p style="font-size:14px; color:var(--accent);">정보과학회 컴퓨팅의 실제 논문지, 26권, 7호, pp. 312-321, 2020년 07월</p>
-  <table style="font-size:14px; color:var(--muted); border-collapse:collapse;">
-  <tr>
-    <td style="padding:4px 1.5rem 4px 0; font-weight:500; color:var(--text);">ISSN</td>
-    <td style="padding:4px 0;">2383-6318(print) / 2383-6326(online)</td>
-  </tr>
-  <tr>
-    <td style="padding:4px 1.5rem 4px 0; font-weight:500; color:var(--text);">DOI</td>
-    <td style="padding:4px 0;">
-      <a href=" https://doi.org/10.5626/KTCP.2020.26.7.312" target="_blank" style="color:var(--accent); text-decoration:none;">
-        10.5626/KTCP.2020.26.7.312
-      </a>
-    </td>
-  </tr>
-</table>
+  <a href=" https://doi.org/10.5626/KTCP.2020.26.7.312" target="_blank" style="color:var(--accent); text-decoration:none;">
+        DOI: 10.5626/KTCP.2020.26.7.312
 </div>
 <main style="max-width:860px; margin:0 auto; padding:0 2rem 6rem;">
   <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2.5rem;">
 
   <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">요약</h2>
   <p style="font-size:14px; line-height:1.8; color:var(--text); margin-bottom:2.5rem; text-align: justify;">
-    클라우드를 통한 데이터 처리는 통신 과정에서 지연시간과 통신비용 증가 등 같은 많은 문제가 발생한다. 사물인터넷 분야에서는 이러한 문제를
-해결하기 위해 엣지 컴퓨팅 연구가 활발히 이루어지고 있고, 대표적인 응용 분야로 자율주행이 있다. 실내 자율주행에서는 실외와 달리 GPS와
-교통정보를 이용할 수 없기 때문에 센서를 활용하여 주변 환경을 인식해야 한다. 그리고 자원이 제약된 모바일 환경이기 때문에 효율적인 자율주행
-시스템이 필요하다. 본 논문에서는 실내 환경에서 자율주행을 위해 신경망을 사용하는 기계학습을 제안한다. 신경망 모델은 LiDAR 센서에서 측정된
-거리 데이터를 바탕으로 현재 위치에 가장 적절한 주행 명령을 예측한다. 신경망의 입력 데이터의 수에 따른 성능 평가를 수행하기 위해 6가지의
-학습 모델을 설계하였다. 주행과 학습을 위해 Raspberry Pi 기반의 자율주행 차량을 제작하였고, 학습 데이터 수집과 성능평가를 위한 실내 주행
-트랙을 제작하였다. 6가지의 신경망 모델들은 정확도와 응답시간 그리고 배터리 소모에 대한 성능 비교를 하였고, 입력 데이터의 수가 성능에
-미치는 영향을 확인하였다.
+    사물인터넷 환경에서 위치 기반 서비스를 위한 기술 중에서 블루투스 비콘은 활발하게 연구되
+고 있는 기술이다. 비콘에서 발산되는 신호 중 RSSI 값을 이용하여 실내에서 이동 중인 스마트 객체와 사
+물 간의 거리측정을 유도할 수 있다. 그러나 RSSI는 신호의 반사와 회절과 같은 현상에 의해 영향을 받아
+정확도가 높지 않은 문제점을 가지고 있다. 본 논문에서는 다측면 기계학습 알고리즘들을 사용하여 RSSI
+를 사용한 거리측정의 정확도를 높이는 연구를 진행하였다. 저주파 통과 필터와 파라미터 학습 그리고 역
+전파 학습을 순차적으로 진행하여 거리를 측정하였다. 제안된 다측면 기계학습 방식의 성능 평가를 위해
+실험의 각 단계에서 유도된 거리와 실제 거리 간의 오차를 바탕으로 정확도를 평가하였다. 실험 결과 제
+안된 거리측정 방식은 제한된 거리 범위 내에서 실측값에 근접한 거리 값을 유도함을 보이므로, 사물인터
+넷 망에서 위치 인식 서비스 응용프로그램에 기여할 수 있음을 보였다.
   </p>
 
   <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Abstract</h2>
   <p style="font-size:14px; line-height:1.8; color:var(--text); margin-bottom:2.5rem; text-align: justify;">
-    Data processing through the cloud causes many problems, such as latency and increased communication costs in the communication
-process. Therefore, many researchers study edge computing in the IoT, and autonomous driving is a representative application. In indoor
-self-driving, unlike outdoor, GPS and traffic information cannot be used, so the surrounding environment must be recognized using sensors.
-An efficient autonomous driving system is required because it is a mobile environment with resource constraints. This paper proposes
-a machine-learning method using neural networks for autonomous driving in an indoor environment. The neural network model predicts
-the most appropriate driving command for the current location based on the distance data measured by the LiDAR sensor. We designed
-six learning models to evaluate according to the number of input data of the proposed neural networks. In addition, we made an
-autonomous vehicle based on Raspberry Pi for driving and learning and an indoor driving track produced for collecting data and evaluation.
-Finally, we compared six neural network models in terms of accuracy, response time, and battery consumption, and the effect of the
-number of input data on performance was confirmed.
+    Bluetooth technology has been widely used for location awareness services in IoT
+network environments. RSSI emitted from a beacon can be utilized to measure the distance between
+smart mobile objects that are moving indoors. However, reflection and diffraction phenomena that
+affect RSSI often result in inaccurate distance measurements. In this paper, multilateral machine
+learning algorithms are applied to enhance the accuracy of distance measurements based on RSSI.
+First, a low-pass filter is used to correct estimates that overshoot among the measured RSSI data.
+Second, a parameter control leaning method is used and the distance translation equation is supplied
+with corrected RSSI data. Although this equation can predict distance from the strength of the RSSI
+signal it can generate errors when it comes to the range of the distances estimated. To reduce these
+range of distance errors, a back propagation neural network algorithm is applied. For performance
+evaluation, we compare the actual distance values with the estimated distance values that come from
+each stage during the multilateral machine learning. The estimated values were found to be close to
+the actual distances within the limited scope of distances tested, as such, we believe this technology
+can contribute to location awareness service applications in IoT networks.
   </p>
 
   <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2rem;">
 
   <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">키워드</h2>
   <p style="font-size:14px; color:var(--muted); margin-bottom:1.5rem;">
-    실내 자율주행, 신경망, 라이다, 라즈베리 파이
+    다측면 학습, 저주파 통과 필터, 파라미터 학습, 신경망, 스마트 모바일 객체
   </p>
 
   <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Keywords</h2>
   <p style="font-size:14px; color:var(--muted); margin-bottom:2.5rem;">
-    Indoor Autonomous Driving, Neural Network, LiDAR, Raspberry Pi
+    multilateral learning, low pass filter, parameter learning, neural network, smart mobile object
   </p>
 
   <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2rem;">
 
   <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Links</h2>
-  <a href="kci2023.pdf" target="_blank" class="pub-readmore">PDF 다운로드</a>
+  <a href="kci2020.pdf" target="_blank" class="pub-readmore">PDF 다운로드</a>
 </main>
 </body>
 </html>
