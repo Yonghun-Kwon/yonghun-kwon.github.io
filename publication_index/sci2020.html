@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing | Yonghun Kwon</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --text: #1a1a18;
+      --muted: #404040;
+      --accent: #2c4a7c;
+      --accent-light: #e8edf5;
+      --border: #e2dfd8;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 0; z-index: 10; }
+    nav { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-name { font-family: var(--serif); font-size: 17px; color: var(--text); letter-spacing: 0.01em; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .pub-readmore { display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent); border: 1px solid var(--accent); padding: 6px 16px; border-radius: 2px; text-decoration: none; }
+    .pub-readmore:hover { background: var(--accent); color: #fff; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="../index.html" class="nav-name">Yonghun Kwon</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#publications">← Publications</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div style="max-width:860px; margin:0 auto; padding:5rem 2rem 4rem;">
+  <div style="font-size:14px; font-weight:600; letter-spacing:0.12em; color:var(--accent); margin-bottom:1rem;">
+   International Journal (SCI)
+  </div>
+  <h1 style="font-family:var(--serif); font-size:25px; font-weight:400; line-height:1.3; margin-bottom:0.6rem;">
+    Neural Network Models for Driving Control of Indoor Autonomous Vehicles in Mobile Edge Computing
+  </h1>
+
+  <p style="font-size:14px; color:var(--muted); margin-bottom:0.3rem;">Yonghun Kwon, Woojae Kim, Inbum Jung</p>
+  <p style="font-size:14px; color:var(--muted);">Sensors, Vol 23, No 5, 2575, Feb, 2023</p>
+  <a href="https://doi.org/10.3390/s23052575" target="_blank" style="color:var(--accent); text-decoration:none;">
+        DOI: 10.3390/s23052575
+    </a>     
+</div>
+
+<main style="max-width:860px; margin:0 auto; padding:0 2rem 6rem;">
+  <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2.5rem;">
+
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Abstract</h2>
+  <p style="font-size:14px; line-height:1.8; color:var(--text); margin-bottom:2.5rem; text-align: justify;">
+     Mobile edge computing has been proposed as a solution for solving the latency problem
+of traditional cloud computing. In particular, mobile edge computing is needed in areas such as
+autonomous driving, which requires large amounts of data to be processed without latency for safety.
+Indoor autonomous driving is attracting attention as one of the mobile edge computing services.
+Furthermore, it relies on its sensors for location recognition because indoor autonomous driving
+cannot use a GPS device, as is the case with outdoor driving. However, while the autonomous
+vehicle is being driven, the real-time processing of external events and the correction of errors are
+required for safety. Furthermore, an efficient autonomous driving system is required because it is
+a mobile environment with resource constraints. This study proposes neural network models as a
+machine-learning method for autonomous driving in an indoor environment. The neural network
+model predicts the most appropriate driving command for the current location based on the range
+data measured with the LiDAR sensor. We designed six neural network models to be evaluated
+according to the number of input data points. In addition, we made an autonomous vehicle based
+on the Raspberry Pi for driving and learning and an indoor circular driving track for collecting data
+and performance evaluation. Finally, we evaluated six neural network models in terms of confusion
+matrix, response time, battery consumption, and driving command accuracy. In addition, when
+neural network learning was applied, the effect of the number of inputs was confirmed in the usage
+of resources. The result will influence the choice of an appropriate neural network model for an
+indoor autonomous vehicle.
+  </p>
+
+  <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2rem;">
+
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Keywords</h2>
+  <p style="font-size:14px; color:var(--muted); margin-bottom:2.5rem;">
+    neural network model, indoor autonomous driving, LiDAR sensor, resource usage, mobile edge computing
+  </p>
+
+  <hr style="border:none; border-top:1px solid var(--border); margin-bottom:2rem;">
+
+  <h2 style="font-size:16px; font-weight:500; margin-bottom:1rem;">Links</h2>
+  <a href="papers/sensors2023.pdf" target="_blank" class="pub-readmore">PDF</a>
+</main>
+</body>
+</html>
