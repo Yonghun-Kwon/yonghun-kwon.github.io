@@ -193,17 +193,16 @@
 
   .section-line {
     flex: 1;
-    height: 1px;
+    height: 2px;
     background: var(--border);
   }
 
   h2 {
+    font-family: var(--serif);
     font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    min-width: 80px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1.2rem;
   }
 
   /* Research interests */
@@ -397,10 +396,9 @@ function toggleAbstract(el) {
   <hr class="divider">
   <section id="research">
     <div class="section-header">
+      <span class="section-label">Research Interests</span>
       <div class="section-line"></div>
-      <div class="section-label">Education</div>
     </div>
-    <h2> Research Interests </h2>
     <div class="tags">
       <span class="tag">Edge AI</span>
       <span class="tag">Physical AI</span>
