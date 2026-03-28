@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yonghun Kwon | 권용훈</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --text: #1a1a18;
+      --muted: #404040;
+      --accent: #2c4a7c;
+      --accent-light: #e8edf5;
+      --border: #e2dfd8;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+
+    /* Header */
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 0; z-index: 10; }
+    nav { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-name { font-family: var(--serif); font-size: 17px; color: var(--text); letter-spacing: 0.01em; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+    .hero-label { font-size: 14px; font-weight: 600; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: var(--serif); font-size: 25px; font-weight: 400; line-height: 1.3; margin-bottom: 0.4rem; }
+    .hero-sub { font-size: 15px; color: var(--muted); margin-bottom: 1.5rem; }
+    .hero-desc { font-size: 14px; line-height: 1.8; color: var(--text); text-align: justify;}
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+    .tag { font-size: 12px; color: var(--accent); background: var(--accent-light); padding: 4px 12px; border-radius: 2px; }
+    /* Year tabs */
+    .year-tabs { max-width: 860px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 0.5rem; border-bottom: 1px solid var(--border); margin-top: 2rem; }
+    .year-tab { font-size: 13px; font-weight: 500; color: var(--muted); padding: 0.6rem 1.2rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.2s; text-decoration: none; }
+    .year-tab:hover { color: var(--accent); }
+    .year-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Main content */
+    main { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+
+    .year-content { display: none; }
+    .year-content.active { display: block; }
+
+    /* Info section */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .info-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
+    .info-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .info-value { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* Section header */
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; margin-top: 2.5rem; }
+    .section-label { font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #333333; white-space: nowrap; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* Chapter */
+    .chapter-item { background: var(--surface); border: 0.5px solid var(--border); border-radius: 8px; margin-bottom: 0.8rem; overflow: hidden; }
+    .chapter-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; cursor: pointer; transition: background 0.15s; }
+    .chapter-header:hover { background: var(--accent-light); }
+    .chapter-num { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); min-width: 80px; }
+    .chapter-title { font-size: 14px; font-weight: 500; color: var(--text); flex: 1; }
+    .chapter-arrow { font-size: 12px; color: var(--muted); transition: transform 0.2s; }
+    .chapter-body { display: none; padding: 0 1.2rem 1.2rem; border-top: 0.5px solid var(--border); }
+    .chapter-body.open { display: block; }
+    .chapter-desc { font-size: 12px; color: var(--muted); line-height: 1.7; margin-top: 1rem; margin-bottom: 1rem; text-align: justify; }
+    .chapter-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 2px; text-decoration: none; border: 1px solid var(--accent); color: var(--accent); transition: all 0.2s; }
+    .btn:hover { background: var(--accent); color: #fff; }
+    .btn-coming { border-color: var(--border); color: var(--muted); cursor: default; }
+    .btn-coming:hover { background: transparent; color: var(--muted); }
+
+    /* Appendix */
+    .appendix-item { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.2rem; background: var(--surface); border: 0.5px solid var(--border); border-radius: 8px; margin-bottom: 0.6rem; }
+    .appendix-title {font-size: 14px; font-weight: 500; color: var(--text); }
+    .appendix-desc { font-size: 12px; color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="../index.html" class="nav-name">Yonghun Kwon</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#Experience">← Experience</a></li>
+    </ul>
+  </nav>
+</header>
+    <div class="hero">
+        <div class="hero-label">Lecture</div>
+        <h1 class="hero-title">임베디드시스템<br>Embedded Systems</h1>
+        <p class="hero-sub">Dept. of Computer Science and Engineering · Kangwon National University</p>
+        <div class="hero-tags">
+        <span class="tag">Major</span>
+        <span class="tag">Junior</span>
+        <span class="tag">Fall</span>
+        </div>
+        <p class="hero-desc">Embedded systems refer to computer systems that provide and receive information needed by humans in everyday living environments, as opposed to conventional desktop computers. Their applications span a wide range of domains, including mobile phones, smart home appliances, factory automation systems, intelligent buildings, and urban infrastructure. This course covers the fundamental structure and operation of embedded computer systems. In particular, students will develop skills as system software engineers by studying device driver programming for various components integrated into embedded systems, including LEDs, cameras, touch pads, and a variety of sensors.</p>
+    </div>    
+        <!-- Year Tabs -->
+    <div class="year-tabs">
+        <a class="year-tab active" onclick="switchYear('2025', this)">2025</a>
+        <a class="year-tab" onclick="switchYear('2023', this)">2023</a>
+        <a class="year-tab" onclick="switchYear('2023', this)">2023</a>
+    </div>
+<main>
+  <!-- 2026 -->
+  <div class="year-content active" id="year-2026">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">Time & Location</div>
+        <div class="info-value">Div. 1 : Wed. 09:00 - 12:50 <br> Div. 2 : Wed. 14:00 - 17:50 <br> #517, College of Engineering #6</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Textbook</div>
+        <div class="info-value"></div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="section-label">Curriculum</span>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Chapter 01 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 01</span>
+        <span class="chapter-title">Internet of Things and Laboratory</span>
+        <a href="emb/2026/IoT_Lab_chapter_1.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 02 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 02</span>
+        <span class="chapter-title">Arduino</span>
+          <a href="emb/2026/IoT_Lab_chapter_2.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 03 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 03</span>
+        <span class="chapter-title">Passive Buzzer · Switch · Ultrasonic Sensor</span>
+          <a href="emb/2026/IoT_Lab_chapter_3.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 04 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 04</span>
+        <span class="chapter-title">Segement · IR
+        </span>
+          <a href="emb/2026/IoT_Lab_chapter_4.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 05 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 05</span>
+        <span class="chapter-title">Analog Sensor · PWM Part.1</span>
+          <a href="emb/2026/IoT_Lab_chapter_5.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 06 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 06</span>
+        <span class="chapter-title">Analog Sensor · PWM Part.2</span>
+          <a href="emb/2026/IoT_Lab_chapter_6.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 07 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 07</span>
+        <span class="chapter-title">챕터 제목을 입력하세요</span>
+          <span class="btn btn-coming">Coming Soon</span>
+        </div>
+    </div>
+
+    <!-- Chapter 08 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 08</span>
+        <span class="chapter-title">챕터 제목을 입력하세요</span>
+          <span class="btn btn-coming">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- Chapter 09 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 09</span>
+        <span class="chapter-title">챕터 제목을 입력하세요</span>
+          <span class="btn btn-coming">Coming Soon</span>
+        </div>
+    </div>
+
+    <!-- Chapter 10 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 10</span>
+        <span class="chapter-title">챕터 제목을 입력하세요</span>
+          <span class="btn btn-coming">Coming Soon</span>
+        </div>
+    </div>
+    <!-- Appendix -->
+    <div class="section-header">
+      <span class="section-label">Appendix</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="appendix-item">
+      <div>
+        <div class="appendix-title">Arduino Libraries</div>
+      </div>
+      <a href="emb/2023/libraries.zip" target="_blank" class="btn">ZIP</a>
+    </div>
+    <div class="appendix-item">
+      <div>
+        <div class="appendix-title">Android Base Code</div>
+      </div>
+      <a href="emb/2023/Android_Base_Code.zip" target="_blank" class="btn">PDF</a>
+    </div>
+    </div>
+  <!-- 2025 -->
+  <div class="year-content" id="year-2025">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">Time & Location</div>
+        <div class="info-value">Div. 1 : Tue. 12:00 - 13:50 / Fri. 10:00 - 11:50 <br> Div. 2 : Tue. 14:00 - 15:50 / Fri. 12:00 - 13:50 <br> #517, College of Engineering #6</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Textbook</div>
+        <div class="info-value"></div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="section-label">Curriculum</span>
+      <div class="section-line"></div>
+    </div>
+
+        <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 01</span>
+        <span class="chapter-title">Internet of Things and Laboratory</span>
+          <a href="emb/2025/25_IoT_Lab_chapter1.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 02 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 02</span>
+        <span class="chapter-title">Arduino</span>
+          <a href="emb/2025/25_IoT_Lab_chapter2.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 03 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 03</span>
+        <span class="chapter-title">Passive Buzzer · Switch · Ultrasonic Sensor</span>
+          <a href="emb/2025/25_IoT_Lab_chapter3.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 04 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 04</span>
+        <span class="chapter-title">Segement · Dot Matrix
+        </span>
+          <a href="emb/2025/25_IoT_Lab_chapter4.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 05 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 05</span>
+        <span class="chapter-title">Analog Sensor</span>
+          <a href="emb/2025/25_IoT_Lab_chapter5.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 06 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 06</span>
+        <span class="chapter-title">PWM</span>
+          <a href="emb/2025/25_IoT_Lab_chapter6.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 07 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 07</span>
+        <span class="chapter-title">IR</span>
+          <a href="emb/2025/25_IoT_Lab_chapter7.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 08-->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 08</span>
+        <span class="chapter-title">Bluetooth</span>
+          <a href="emb/2025/25_IoT_Lab_chapter8.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 09 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 09</span>
+        <span class="chapter-title">Android</span>
+          <a href="emb/2025/25_IoT_Lab_chapter9.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 10 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 10</span>
+        <span class="chapter-title">Android Practices</span>
+          <a href="emb/2025/25_IoT_Lab_chapter10.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 11 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 11</span>
+        <span class="chapter-title">Arduino Car</span>
+          <a href="emb/2025/25_IoT_Lab_chapter11.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="section-label">Appendix</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="appendix-item">
+      <div>
+        <div class="appendix-title">Arduino Libraries</div>
+      </div>
+      <a href="emb/2025/libraries.zip" target="_blank" class="btn">ZIP</a>
+    </div>
+    <div class="appendix-item">
+      <div>
+        <div class="appendix-title">Android Base Code</div>
+      </div>
+      <a href="emb/2025/Android_base_code_25.zip" target="_blank" class="btn">PDF</a>
+    </div>
+    </div>
+</div>
+  <!-- 2023 -->
+  <div class="year-content" id="year-2023">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">Time & Location</div>
+        <div class="info-value">Div.1 : Tue. 13:00 - 16:50 <br> Div.2 : Fri. 13:00 - 16:50 <br> #517, College of Engineering #6</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Textbook</div>
+        <div class="info-value"> </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="section-label">Curriculum</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 01</span>
+        <span class="chapter-title">Embedded Kit · Raspberry Pi</span>
+          <a href="emb/2023/23_embedded_chapter_1.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 02 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 02</span>
+        <span class="chapter-title">RGB LED · Active Buzzer · Push Switch</span>
+          <a href="emb/2023/23_embedded_chapter_2.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 03 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 03</span>
+        <span class="chapter-title">PIR · Ultrasonic Sensor</span>
+          <a href="emb/2023/23_embedded_chapter_3.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 04 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 04</span>
+        <span class="chapter-title">DC Motor · Step Motor
+        </span>
+          <a href="emb/2023/23_embedded_chapter_4.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 05 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 05</span>
+        <span class="chapter-title">PWM · Servo Motor · Passive Buzzer</span>
+          <a href="emb/2023/23_embedded_chapter_5.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 06 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 06</span>
+        <span class="chapter-title">Camera · FND · IR</span>
+          <a href="emb/2023/23_embedded_chapter_6.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+
+    <!-- Chapter 07 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 07</span>
+        <span class="chapter-title">LCD · Potentiometer · CDS</span>
+          <a href="emb/2023/23_embedded_chapter_7.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 08-->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 08</span>
+        <span class="chapter-title">Web Server</span>
+          <a href="emb/2023/23_embedded_chapter_8.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 09 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 09</span>
+        <span class="chapter-title">Bluetooth · Android</span>
+          <a href="emb/2023/23_embedded_chapter_9.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 10 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 10</span>
+        <span class="chapter-title">Smart Car</span>
+          <a href="emb/2023/23_embedded_chapter_10.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <!-- Chapter 11 -->
+    <div class="chapter-item">
+      <div class="chapter-header" onclick="toggleChapter(this)">
+        <span class="chapter-num">Chapter 11</span>
+        <span class="chapter-title">Arduino Car</span>
+          <a href="emb/2023/23_embedded_chapter_11.pdf" target="_blank" class="btn">PDF</a>
+      </div>
+    </div>
+    <div class="section-header">
+      <span class="section-label">Appendix</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="appendix-item">
+      <div>
+        <div class="appendix-title">Arduino Libraries</div>
+      </div>
+      <a href="emb/2023/23_embeddedzip" target="_blank" class="btn">ZIP</a>
+    </div>
+    <div class="appendix-item">
+      <div>
+        <div class="appendix-title">Android Base Code</div>
+      </div>
+      <a href="emb/2023/Android_Base_Code.zip" target="_blank" class="btn">PDF</a>
+    </div>
+</div>
+</main>
+
+<script>
+function switchYear(year, el) {
+  document.querySelectorAll('.year-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('year-' + year).classList.add('active');
+  el.classList.add('active');
+}
+
+function toggleChapter(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.chapter-arrow');
+  body.classList.toggle('open');
+  arrow.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+}
+</script>
+
+</body>
+</html>
